@@ -115,6 +115,103 @@ h2 {
   position: relative;
 }
 
+.project-video {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
+
+.comparison-teaser {
+  --split: 50%;
+  background: #f5f5f5;
+  overflow: hidden;
+}
+
+.comparison-teaser img {
+  height: 100%;
+  left: 0;
+  object-fit: cover;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.comparison-overlay {
+  animation: comparison-clip 3.6s ease-in-out infinite;
+  clip-path: inset(0 calc(100% - var(--split)) 0 0);
+}
+
+.comparison-bar {
+  animation: comparison-bar 3.6s ease-in-out infinite;
+  background: white;
+  bottom: 0;
+  box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.35);
+  left: var(--split);
+  position: absolute;
+  top: 0;
+  transform: translateX(-50%);
+  width: 3px;
+}
+
+.comparison-label {
+  background: rgba(0, 0, 0, 0.55);
+  color: white;
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 11px;
+  line-height: 1;
+  padding: 4px 5px;
+  pointer-events: none;
+  position: absolute;
+  top: 6px;
+  z-index: 1;
+}
+
+.comparison-label-left {
+  animation: comparison-left-label 3.6s steps(1, end) infinite;
+  left: 6px;
+}
+
+.comparison-label-right {
+  animation: comparison-right-label 3.6s steps(1, end) infinite;
+  right: 6px;
+}
+
+@keyframes comparison-clip {
+  0%, 100% {
+    clip-path: inset(0 100% 0 0);
+  }
+  50% {
+    clip-path: inset(0 0 0 0);
+  }
+}
+
+@keyframes comparison-bar {
+  0%, 100% {
+    left: 0;
+  }
+  50% {
+    left: 100%;
+  }
+}
+
+@keyframes comparison-left-label {
+  0%, 15%, 85%, 100% {
+    opacity: 0;
+  }
+  16%, 84% {
+    opacity: 1;
+  }
+}
+
+@keyframes comparison-right-label {
+  0%, 34%, 66%, 100% {
+    opacity: 1;
+  }
+  35%, 65% {
+    opacity: 0;
+  }
+}
+
 .two {
   width: 160px;
   height: 160px;
@@ -139,4 +236,33 @@ span.highlight {
     padding: 20px;
     display: inline-block;
     border-radius: 10px;
+}
+
+.image-modal {
+  align-items: center;
+  background: rgba(0, 0, 0, 0.65);
+  bottom: 0;
+  display: none;
+  justify-content: center;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 1000;
+}
+
+.image-modal.visible {
+  display: flex;
+}
+
+.image-modal img {
+  background: white;
+  max-height: 90vh;
+  width: 50vw;
+}
+
+@media (max-width: 700px) {
+  .image-modal img {
+    width: 90vw;
+  }
 }

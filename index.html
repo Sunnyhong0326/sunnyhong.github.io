@@ -35,6 +35,7 @@
                                         <a href="assets/cv/SHENG-HSIANG_HUNG_CV.pdf">CV</a> &nbsp;/&nbsp;
                                         <a href="https://github.com/Sunnyhong0326">Github</a>
                                     </p>
+                                </td>
                             </tr>
                         </tbody>
                     </table>
@@ -59,7 +60,9 @@
                             <tr onmouseout="nexf_stop()" onmouseover="nexf_start()">
                                 <td style="padding:16px;width:20%;vertical-align:middle">
                                     <div class="one">
-                                        <img src='images/LoBE_GS_pipeline.png' width=100%>
+                                        <a href="images/LoBE_GS_pipeline.png" onclick="openImageModal(event, 'images/LoBE_GS_pipeline.png', 'LoBE-GS pipeline diagram')">
+                                            <img src="images/LoBE_GS_pipeline.png" width="100%">
+                                        </a>
                                     </div>
                                 </td>
                                 <td style="padding:8px;width:80%;vertical-align:middle">
@@ -78,18 +81,275 @@
                                     <br>
                                     <a href="https://arxiv.org/abs/2510.01767">arXiv</a>
                                     /
-                                    <a href="https://sunnyhong0326.github.io/sunnyhong.github.io/assets/posters/LoBE_GS_GTC_Poster_2026.pdf">poster</a>
+                                    <a href="https://sunnyhong0326.github.io/assets/posters/LoBE_GS_GTC_Poster_2026.pdf">poster</a>
                                     <p></p>
                                     <p>
                                         A load-balanced training pipeline for large-scale 3D Gaussian Splatting. 
-                                        By partitioning with a runtime-correlated load proxy and optimizing camera visibility, it cuts end-to-end training time by ~2× without sacrificing quality compared to SOTA methods.
+                                        By partitioning with a runtime-correlated load proxy and optimizing camera visibility, it cuts end-to-end training time by <strong>~2×</strong> without sacrificing quality compared to SOTA methods.
                                     </p>
                                 </td>
                             </tr>
 
+                        </tbody>
+                    </table>
+                    <table
+                        style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                        <tbody>
+                            <tr>
+                                <td style="padding:16px;width:100%;vertical-align:middle">
+                                    <h2>Selected Projects</h2>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <table
+                        style="width:100%;border:0px;border-spacing:0px 4px;border-collapse:separate;margin-right:auto;margin-left:auto;">
+                        <tbody>
+                            <tr>
+                                <td style="padding:12px 16px;width:20%;vertical-align:middle">
+                                    <div class="one comparison-teaser">
+                                        <img class="comparison-full" src="assets/selected_projects/itri_collaboration/mesh.jpg" alt="Mesh reconstruction result">
+                                        <img class="comparison-overlay" src="assets/selected_projects/itri_collaboration/3DGS.jpg" alt="3D Gaussian Splatting reconstruction result">
+                                        <span class="comparison-label comparison-label-left">3DGS</span>
+                                        <span class="comparison-label comparison-label-right">Mesh</span>
+                                        <span class="comparison-bar"></span>
+                                    </div>
+                                </td>
+                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                    <span class="papertitle">Real-Time 3D Scene Digitization and Measurement Platform</span>
+                                    <br>
+                                    Industrial collaboration (ITRI x NTHU), 2025
+                                    <br>
+                                    <a href="https://www.youtube.com/watch?v=YgUP-OLQHYI&feature=youtu.be">demo</a>
+                                    <p></p>
+                                    <p>
+                                        Built an image-to-3DGS/mesh reconstruction pipeline and a 60 FPS web viewer with distance/volume measurement tools achieving less than 1 m real-world error.
+                                    </p>
+                                    <p>
+                                        Tech: Javascript, React, Three.js, Python
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:12px 16px;width:20%;vertical-align:middle">
+                                    <div class="one comparison-teaser" id="graphics-comparison">
+                                        <img class="comparison-full" src="assets/selected_projects/graphics_programming/full.jpg" alt="Full graphics programming render">
+                                        <img class="comparison-overlay" src="assets/selected_projects/graphics_programming/ambient.jpg" alt="Graphics programming render component">
+                                        <span class="comparison-label comparison-label-left">Ambient</span>
+                                        <span class="comparison-label comparison-label-right">Full</span>
+                                        <span class="comparison-bar"></span>
+                                    </div>
+                                </td>
+                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                    <span class="papertitle">Real-Time Rendering Engine with Advanced Lighting and Post-Processing</span>
+                                    <br>
+                                    Course project, Graphics Programming, 2024
+                                    <br>
+                                    <a href="assets/selected_projects/graphics_programming/final_project.mp4">demo</a>
+                                    <p></p>
+                                    <p>
+                                        Collaborated in a 4-person team to implement a real-time rendering engine with Blinn-Phong shading, deferred shading, shadow mapping, normal mapping, bloom, SSAO, SSR, FXAA, point light shadows, and area lighting.
+                                    </p>
+                                    <p>
+                                        Tech: C, C++, OpenGL
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:12px 16px;width:20%;vertical-align:middle">
+                                    <div class="one">
+                                        <a href="assets/selected_projects/game_programming/poster.jpg" onclick="openImageModal(event, 'assets/selected_projects/game_programming/poster.jpg', 'game_programming/Game')">
+                                            <img src="assets/selected_projects/game_programming/poster.jpg" width="100%">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                    <span class="papertitle">STRI2OKE</span>
+                                    <br>
+                                    Course project, Game Programming, 2024
+                                    <br>
+                                    <a href="https://youtu.be/cm-TygXhOTs">demo</a>
+                                    <p></p>
+                                    <p>
+                                        Collaborated in a five-person team to build a real-time interactive game with player controls, gameplay mechanics, scene logic, and visual feedback. 
+                                        Contributed to core gameplay implementation and integration to deliver a playable Unity-based project.
+                                    </p>
+                                    <p>
+                                        Tech: Unity
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:12px 16px;width:20%;vertical-align:middle">
+                                    <div class="one">
+                                        <a href="assets/selected_projects/parallel_programming/TSP_parallel_programming.jpg" onclick="openImageModal(event, 'assets/selected_projects/parallel_programming/TSP_parallel_programming.jpg', 'parallel_programming/Parallel Ant Colony Optimization for TSP project diagram')">
+                                            <img src="assets/selected_projects/parallel_programming/TSP_parallel_programming.jpg" width="100%">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                    <span class="papertitle">Parallel Ant Colony Optimization for TSP</span>
+                                    <br>
+                                    Course project, Parallel Programming, 2023
+                                    <br>
+                                    <a href="assets/selected_projects/parallel_programming/final_report.pdf">report</a>
+                                    /
+                                    <a href="https://github.com/Sunnyhong0326/ML-analyze/tree/main">code</a>
+                                    <p></p>
+                                    <p>
+                                        Led a two-person team to develop a CUDA/OpenMP parallel Ant Colony Optimization solver for the Traveling Salesman Problem on TSPLIB datasets. 
+                                        Optimized GPU-based next-city selection using parallel prefix sum, shared memory, bank-conflict avoidance, and reduced warp divergence, achieving up to <strong>137x</strong> GPU speedup.
+                                    </p>
+                                    <p>
+                                        Tech: C, C++, CUDA, OpenMP, CPU/GPU profiling
+                                    </p>
+                                </td>
+                            </tr>
+                            
+                            <tr>
+                                <td style="padding:12px 16px;width:20%;vertical-align:middle">
+                                    <div class="one">
+                                        <a href="assets/selected_projects/intro_to_mm/AudioUNet.jpg" onclick="openImageModal(event, 'assets/selected_projects/intro_to_mm/AudioUNet.jpg', 'Audio Super-Resolution with U-Net project diagram')">
+                                            <img src="assets/selected_projects/intro_to_mm/AudioUNet.jpg" width="100%" style="margin-top:32px">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                    <span class="papertitle">Audio Super-Resolution with U-Net</span>
+                                    <br>
+                                    Course project, Introduction to Multimedia, 2023
+                                    <br>
+                                    <a href="https://docs.google.com/presentation/d/1ffEPSVKWWiMz_VuN18z0wPIDv2L_3JbKOxxmX2AOoZI/edit?slide=id.p#slide=id.p">slides</a>
+                                    /
+                                    <a href="https://github.com/Sunnyhong0326/Audio-super-resolution">code</a>
+                                    <p></p>
+                                    <p>
+                                        Led a four-person team to build a U-Net audio super-resolution model with residual/skip connections and AFiLM-based feature modulation. 
+                                        Combined waveform and spectrogram losses, reducing LSD from 2.60 to 0.85 through two-phase training.
+                                    </p>
+                                    <p>
+                                        Tech: Python, PyTorch, U-Net, STFT, audio signal processing
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:12px 16px;width:20%;vertical-align:middle">
+                                    <div class="one">
+                                        <a href="assets/selected_projects/intro_to_ml/Taiwanese_soap_opera_cnn.jpg" onclick="openImageModal(event, 'assets/selected_projects/intro_to_ml/Taiwanese_soap_opera_cnn.jpg', 'intro_to_ml/Taiwanese Soap Opera Speech Emotion Recognition project diagram')">
+                                            <img src="assets/selected_projects/intro_to_ml/Taiwanese_soap_opera_cnn.jpg" width="100%">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                    <span class="papertitle">Taiwanese Soap Opera Speech Emotion Recognition</span>
+                                    <br>
+                                    Course project, Introduction to Machine Learning, 2022
+                                    <br>
+                                    <a href="assets/selected_projects/intro_to_ml/final_report.pdf">report</a>
+                                    /
+                                    <a href="https://github.com/Sunnyhong0326/ML-analyze/tree/main">code</a>
+                                    <p></p>
+                                    <p>
+                                        Led a five-person team to develop a CNN-based speech emotion recognition system using a self-collected Taiwanese soap opera audio dataset. 
+                                        Extracted MFCC, Mel spectrogram, ZCR, Chroma STFT, and RMS features, and analyzed spectrogram differences between real-world drama audio and acted emotion datasets.
+                                    </p>
+                                    <p>
+                                        Tech: Python, Pytorch, Transfer Learning
+                                    </p>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td style="padding:12px 16px;width:20%;vertical-align:middle">
+                                    <div class="one">
+                                        <a href="assets/selected_projects/logic_design_lab/Automatic_Writing_Machine.jpg" onclick="openImageModal(event, 'assets/selected_projects/logic_design_lab/Automatic_Writing_Machine.jpg', 'logic_design_lab/Automatic_Writing_Machine project diagram')">
+                                            <img src="assets/selected_projects/logic_design_lab/Automatic_Writing_Machine.jpg" width="100%">
+                                        </a>
+                                    </div>
+                                </td>
+                                <td style="padding:8px;width:80%;vertical-align:middle">
+                                    <span class="papertitle">Automatic Writing Machine</span>
+                                    <br>
+                                    Course project, Logic Design Lab, 2021
+                                    <br>
+                                    <a href="https://www.youtube.com/watch?v=2XpVxKvO7UU">demo</a>
+                                    /
+                                    <a href="https://github.com/Sunnyhong0326/Logic-Design-Lab/tree/main">code</a>
+                                    <p></p>
+                                    <p>
+                                        Led a two-person team to build an FPGA-controlled handwriting plotter that converts keyboard-selected digits into coordinate-based stroke sequences. 
+                                        Implemented reusable Verilog FSM modules for line drawing, digit generation, X/Y stepper motor control, and PWM-based servo pen control.
+                                    </p>
+                                    <p>
+                                        Tech: Verilog, FPGA, FSM, PWM, stepper motor control
+                                    </p>
+                                </td>
+                            </tr>
+                            
+                            
+                        </tbody>
+                    </table>
                 </td>
             </tr>
+        </tbody>
     </table>
+    <div id="image-modal" class="image-modal" onclick="closeImageModal(event)">
+        <img id="modal-image" src="" alt="">
+    </div>
+    <script>
+        function openImageModal(event, imageSrc, imageAlt) {
+            event.preventDefault();
+            const modalImage = document.getElementById('modal-image');
+            modalImage.src = imageSrc;
+            modalImage.alt = imageAlt;
+            document.getElementById('image-modal').classList.add('visible');
+        }
+
+        function closeImageModal(event) {
+            if (event.target.id === 'image-modal') {
+                event.currentTarget.classList.remove('visible');
+            }
+        }
+
+        const graphicsComparisonImages = [
+            { src: 'assets/selected_projects/graphics_programming/ambient.jpg', label: 'Ambient' },
+            { src: 'assets/selected_projects/graphics_programming/diffuse.jpg', label: 'Diffuse' },
+            { src: 'assets/selected_projects/graphics_programming/specular.jpg', label: 'Specular' },
+            { src: 'assets/selected_projects/graphics_programming/normal.jpg', label: 'Normal' },
+            { src: 'assets/selected_projects/graphics_programming/depth.jpg', label: 'Depth' },
+            { src: 'assets/selected_projects/graphics_programming/vertex.jpg', label: 'Vertex' }
+        ];
+
+        graphicsComparisonImages.forEach((image) => {
+            const preload = new Image();
+            preload.src = image.src;
+        });
+
+        function setComparisonLabels() {
+            document.querySelectorAll('.comparison-teaser').forEach((teaser) => {
+                teaser.classList.remove('hide-left-label', 'hide-right-label');
+                setTimeout(() => teaser.classList.add('hide-left-label'), 0);
+                setTimeout(() => teaser.classList.remove('hide-left-label'), 450);
+                setTimeout(() => teaser.classList.add('hide-right-label'), 1350);
+                setTimeout(() => teaser.classList.remove('hide-right-label'), 2250);
+                setTimeout(() => teaser.classList.add('hide-left-label'), 3150);
+            });
+        }
+
+        let graphicsComparisonIndex = 0;
+
+        function advanceGraphicsComparison() {
+            graphicsComparisonIndex = (graphicsComparisonIndex + 1) % graphicsComparisonImages.length;
+            const graphicsTeaser = document.getElementById('graphics-comparison');
+            if (graphicsTeaser) {
+                graphicsTeaser.querySelector('.comparison-overlay').src = graphicsComparisonImages[graphicsComparisonIndex].src;
+                graphicsTeaser.querySelector('.comparison-label-left').textContent = graphicsComparisonImages[graphicsComparisonIndex].label;
+            }
+        }
+
+        setComparisonLabels();
+        setInterval(setComparisonLabels, 3600);
+        setInterval(advanceGraphicsComparison, 3600);
+    </script>
 </body>
 
 </html>
