@@ -374,22 +374,38 @@
 
         function initializeDraggableComparison(teaser) {
             const bar = teaser.querySelector('.comparison-bar');
+            const labels = teaser.querySelectorAll('.comparison-label');
 
-            function setSplit(clientX) {
-                const rect = teaser.getBoundingClientRect();
-                const split = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1) * 100;
+            function updateLabelVisibility() {
+                const barRect = bar.getBoundingClientRect();
+
+                labels.forEach((label) => {
+                    const labelRect = label.getBoundingClientRect();
+                    const overlapsBar = barRect.right >= labelRect.left && barRect.left <= labelRect.right;
+                    label.classList.toggle('comparison-label-hidden', overlapsBar);
+                });
+            }
+
+            function setSplitPercent(split) {
                 teaser.style.setProperty('--split', `${split}%`);
                 bar.setAttribute('aria-valuenow', Math.round(split));
+                updateLabelVisibility();
+            }
+
+            function setSplitFromPointer(clientX) {
+                const rect = teaser.getBoundingClientRect();
+                const split = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1) * 100;
+                setSplitPercent(split);
             }
 
             teaser.addEventListener('pointerdown', (event) => {
                 teaser.setPointerCapture(event.pointerId);
-                setSplit(event.clientX);
+                setSplitFromPointer(event.clientX);
             });
 
             teaser.addEventListener('pointermove', (event) => {
                 if (teaser.hasPointerCapture(event.pointerId)) {
-                    setSplit(event.clientX);
+                    setSplitFromPointer(event.clientX);
                 }
             });
 
@@ -407,9 +423,11 @@
                 if (event.key === 'Home') nextSplit = 0;
                 if (event.key === 'End') nextSplit = 100;
 
-                teaser.style.setProperty('--split', `${nextSplit}%`);
-                bar.setAttribute('aria-valuenow', Math.round(nextSplit));
+                setSplitPercent(nextSplit);
             });
+
+            updateLabelVisibility();
+            window.addEventListener('resize', updateLabelVisibility);
         }
 
         document.querySelectorAll('.comparison-draggable').forEach(initializeDraggableComparison);

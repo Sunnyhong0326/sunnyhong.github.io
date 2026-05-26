@@ -201,6 +201,10 @@ h2 {
   animation: none;
 }
 
+.comparison-draggable .comparison-label-hidden {
+  opacity: 0;
+}
+
 @keyframes comparison-clip {
   0%, 100% {
     clip-path: inset(0 100% 0 0);
