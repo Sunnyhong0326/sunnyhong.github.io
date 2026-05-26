@@ -33,7 +33,8 @@
                                     <p style="text-align:center">
                                         <a href="mailto:sunnyhong91@gmail.com">Email</a> &nbsp;/&nbsp;
                                         <a href="assets/cv/SHENG-HSIANG_HUNG_CV.pdf">CV</a> &nbsp;/&nbsp;
-                                        <a href="https://github.com/Sunnyhong0326">Github</a>
+                                        <a href="https://github.com/Sunnyhong0326">Github</a> &nbsp;/&nbsp;
+                                        <a href="https://www.linkedin.com/in/sheng-hsiang-hung-605075291">LinkedIn</a>
                                     </p>
                                 </td>
                             </tr>
@@ -107,12 +108,12 @@
                         <tbody>
                             <tr>
                                 <td style="padding:12px 16px;width:20%;vertical-align:middle">
-                                    <div class="one comparison-teaser">
+                                    <div class="one comparison-teaser comparison-draggable" id="itri-comparison">
                                         <img class="comparison-full" src="assets/selected_projects/itri_collaboration/mesh.jpg" alt="Mesh reconstruction result">
                                         <img class="comparison-overlay" src="assets/selected_projects/itri_collaboration/3DGS.jpg" alt="3D Gaussian Splatting reconstruction result">
                                         <span class="comparison-label comparison-label-left">3DGS</span>
                                         <span class="comparison-label comparison-label-right">Mesh</span>
-                                        <span class="comparison-bar"></span>
+                                        <span class="comparison-bar" role="slider" aria-label="Compare 3DGS and mesh" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0"></span>
                                     </div>
                                 </td>
                                 <td style="padding:8px;width:80%;vertical-align:middle">
@@ -350,7 +351,7 @@
         });
 
         function setComparisonLabels() {
-            document.querySelectorAll('.comparison-teaser').forEach((teaser) => {
+            document.querySelectorAll('.comparison-teaser:not(.comparison-draggable)').forEach((teaser) => {
                 teaser.classList.remove('hide-left-label', 'hide-right-label');
                 setTimeout(() => teaser.classList.add('hide-left-label'), 0);
                 setTimeout(() => teaser.classList.remove('hide-left-label'), 450);
@@ -371,6 +372,47 @@
             }
         }
 
+        function initializeDraggableComparison(teaser) {
+            const bar = teaser.querySelector('.comparison-bar');
+
+            function setSplit(clientX) {
+                const rect = teaser.getBoundingClientRect();
+                const split = Math.min(Math.max((clientX - rect.left) / rect.width, 0), 1) * 100;
+                teaser.style.setProperty('--split', `${split}%`);
+                bar.setAttribute('aria-valuenow', Math.round(split));
+            }
+
+            teaser.addEventListener('pointerdown', (event) => {
+                teaser.setPointerCapture(event.pointerId);
+                setSplit(event.clientX);
+            });
+
+            teaser.addEventListener('pointermove', (event) => {
+                if (teaser.hasPointerCapture(event.pointerId)) {
+                    setSplit(event.clientX);
+                }
+            });
+
+            teaser.addEventListener('keydown', (event) => {
+                if (event.target !== bar || !['ArrowLeft', 'ArrowRight', 'Home', 'End'].includes(event.key)) {
+                    return;
+                }
+
+                event.preventDefault();
+                const currentSplit = parseFloat(getComputedStyle(teaser).getPropertyValue('--split')) || 50;
+                let nextSplit = currentSplit;
+
+                if (event.key === 'ArrowLeft') nextSplit = Math.max(currentSplit - 5, 0);
+                if (event.key === 'ArrowRight') nextSplit = Math.min(currentSplit + 5, 100);
+                if (event.key === 'Home') nextSplit = 0;
+                if (event.key === 'End') nextSplit = 100;
+
+                teaser.style.setProperty('--split', `${nextSplit}%`);
+                bar.setAttribute('aria-valuenow', Math.round(nextSplit));
+            });
+        }
+
+        document.querySelectorAll('.comparison-draggable').forEach(initializeDraggableComparison);
         setComparisonLabels();
         setInterval(setComparisonLabels, 3600);
         setInterval(advanceGraphicsComparison, 3600);

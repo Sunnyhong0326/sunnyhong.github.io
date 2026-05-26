@@ -127,6 +127,12 @@ h2 {
   overflow: hidden;
 }
 
+.comparison-draggable {
+  cursor: ew-resize;
+  touch-action: none;
+  user-select: none;
+}
+
 .comparison-teaser img {
   height: 100%;
   left: 0;
@@ -141,6 +147,10 @@ h2 {
   clip-path: inset(0 calc(100% - var(--split)) 0 0);
 }
 
+.comparison-draggable .comparison-overlay {
+  animation: none;
+}
+
 .comparison-bar {
   animation: comparison-bar 3.6s ease-in-out infinite;
   background: white;
@@ -151,6 +161,13 @@ h2 {
   top: 0;
   transform: translateX(-50%);
   width: 3px;
+}
+
+.comparison-draggable .comparison-bar {
+  animation: none;
+  cursor: ew-resize;
+  outline: none;
+  z-index: 2;
 }
 
 .comparison-label {
@@ -171,9 +188,17 @@ h2 {
   left: 6px;
 }
 
+.comparison-draggable .comparison-label-left {
+  animation: none;
+}
+
 .comparison-label-right {
   animation: comparison-right-label 3.6s steps(1, end) infinite;
   right: 6px;
+}
+
+.comparison-draggable .comparison-label-right {
+  animation: none;
 }
 
 @keyframes comparison-clip {
